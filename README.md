@@ -1,6 +1,6 @@
 # pancreatitis-ml
 ---
-
+<img width="690" height="745" alt="Screenshot 2025-08-26 123320" src="https://github.com/user-attachments/assets/8fbac9ec-c59a-4646-884d-8b716d6e91c3" />
 # 🧪 Pancreatitis Lab Checker + ML
 
 This project is a **Pancreatitis Lab Report Checker** built using **JavaScript** and enhanced with **Machine Learning** for better prediction accuracy.
@@ -76,6 +76,7 @@ The system checks these values against normal ranges and predicts a **possible r
 ✅ Educational dashboard interface
 
 ---
+
 
 ## ⚠️ Important Note
 
