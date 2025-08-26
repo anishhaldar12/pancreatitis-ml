@@ -1,0 +1,138 @@
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------- */
+/* Keyframe Animations */
+/* ------------------- */
+@keyframes fadeInScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulseBorderGood {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(76, 175, 80, 0); }
+}
+
+@keyframes pulseBorderBad {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(244, 67, 54, 0); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes background-pan {
+  from { background-position: 0% center; }
+  to { background-position: -200% center; }
+}
+
+/* ------------------- */
+/* Global Background   */
+/* ------------------- */
+body {
+  @apply min-h-screen;
+  background: linear-gradient(270deg, #e0e7ff, #f8fafc, #dbeafe);
+  background-size: 400% 400%;
+  animation: gradient-shift 18s ease infinite;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ------------------- */
+/* Main App Container  */
+/* ------------------- */
+.app-card {
+  @apply max-w-5xl w-full bg-white rounded-3xl shadow-xl p-10 mx-auto;
+  animation: fadeInScaleUp 0.8s ease-out forwards;
+  transition: all 0.35s ease-in-out;
+  border: 1px solid rgba(0,0,0,0.05);
+  backdrop-filter: blur(6px);
+}
+
+.app-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------- */
+/* Labels & Inputs     */
+/* ------------------- */
+.label-small {
+  @apply text-sm font-semibold text-gray-700 tracking-wide;
+}
+
+.input-field {
+  @apply w-full border-2 border-gray-300 p-3 rounded-xl focus:outline-none;
+  @apply focus:border-indigo-500 focus:ring-2 focus:ring-indigo-300;
+  transition: all 0.25s ease-in-out;
+  background: #f9fafb;
+}
+
+.input-field:hover {
+  @apply border-indigo-400;
+  background: #ffffff;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ------------------- */
+/* Result Boxes        */
+/* ------------------- */
+.result-box {
+  @apply mt-8 p-6 rounded-2xl text-lg font-bold relative overflow-hidden;
+  animation: fadeInScaleUp 0.6s ease-out forwards, float 3.5s ease-in-out infinite;
+  transform: scale(1);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.result-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-size: 200%;
+  animation: background-pan 12s linear infinite;
+  z-index: 0;
+}
+
+.result-good {
+  @apply bg-green-50 text-green-700 border border-green-300;
+  animation: pulseBorderGood 2.5s ease-in-out infinite;
+}
+
+.result-good::before {
+  background-image: linear-gradient(135deg, #A7F3D0, #4CAF50);
+}
+
+.result-bad {
+  @apply bg-red-50 text-red-700 border border-red-300;
+  animation: pulseBorderBad 2.5s ease-in-out infinite;
+}
+
+.result-bad::before {
+  background-image: linear-gradient(135deg, #FECACA, #F44336);
+}
+
+/* ------------------- */
+/* Small Muted Text    */
+/* ------------------- */
+.small-muted {
+  @apply text-sm text-gray-500 mt-2;
+  letter-spacing: 0.02em;
+}
